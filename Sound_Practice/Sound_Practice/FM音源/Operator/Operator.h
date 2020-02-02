@@ -17,7 +17,7 @@ public:
 	void Stop(void);
 	/*信号の生成(モジュレータなし、フィードバックなし)
 	return 信号*/
-	std::int32_t CreateSignal(void);
+	std::int32_t CreateSignalSimple(void);
 	/*読み出し速度の設定
 	.生成信号
 	.サンプリング周波数*/

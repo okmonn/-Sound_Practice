@@ -10,6 +10,10 @@ public:
 	.サンプリング周波数
 	.生成周波数*/
 	Modulator(const std::uint32_t& sample, const std::uint32_t& freq = 440);
+	/*信号生成の開始*/
+	void Start(void);
+	/*信号生成の停止*/
+	void Stop(void);
 	/*信号の生成
 	.格納バッファ
 	.バッファ数*/

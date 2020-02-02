@@ -12,10 +12,24 @@ Modulator::Modulator(const std::uint32_t& sample, const std::uint32_t& freq)
 	SetFreq(freq);
 }
 
+void Modulator::Start(void)
+{
+	for (auto& i : op) {
+		i.Start();
+	}
+}
+
+void Modulator::Stop(void)
+{
+	for (auto& i : op) {
+		i.Stop();
+	}
+}
+
 void Modulator::CreateSignal(std::int16_t* buf, const std::uint32_t& num)
 {
-	for (std::uint32_t i = 0; i < op.size(); ++i) {
-		buf[i] = op[0].CreateSignal();
+	for (std::uint32_t i = 0; i < num; ++i) {
+		buf[i] = op[0].CreateSignalSimple();
 	}
 }
 

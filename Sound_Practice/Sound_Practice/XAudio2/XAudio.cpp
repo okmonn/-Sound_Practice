@@ -18,6 +18,9 @@ XAudio::XAudio() :
 
 XAudio::~XAudio()
 {
+	for (auto& i : voice) {
+		i->End();
+	}
 	if (mastering != nullptr) {
 		mastering->DestroyVoice();
 		mastering = nullptr;
@@ -48,6 +51,24 @@ void XAudio::Initialize(void)
 {
 	CreateAudio();
 	CreateMastering();
+}
+
+void XAudio::AddList(SourceVoice* voice)
+{
+	this->voice.emplace_back(voice);
+}
+
+void XAudio::DeleteList(SourceVoice* voice)
+{
+	for (auto itr = this->voice.begin(); itr != this->voice.end();) {
+		if (*itr == voice) {
+			this->voice.erase(itr);
+			break;
+		}
+		else {
+			++itr;
+		}
+	}
 }
 
 long CreateXAudio(XAudio** engine)

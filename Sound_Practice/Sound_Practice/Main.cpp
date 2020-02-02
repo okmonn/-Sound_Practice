@@ -1,4 +1,5 @@
-#include "XAudio2/XAudio/XAudio.h"
+#include "XAudio2/XAudio.h"
+#include "FM音源/Modulator.h"
 
 #include <DxLib.h>
 #include <cmath>
@@ -8,6 +9,11 @@ int main() {
 	CoInitializeEx(nullptr, COINIT_MULTITHREADED);
 	XAudio* engine = nullptr;
 	CreateXAudio(&engine);
+	SourceVoice voice(engine, 48000, 16, 1);
+	std::int16_t buf[480];
+	Modulator mod(48000);
+	mod.SetFreq(440U);
+	mod.Start();
 	{
 		//ログの出力制御
 		DxLib::SetOutApplicationLogValidFlag(false);
@@ -34,6 +40,8 @@ int main() {
 		for (std::int32_t i = -16; i < 11; ++i) {
 			DxLib::DrawPixel(i + 16, (1 * std::pow(i, 2) + 6 * i + 20), GetColor(255, 0, 0));
 		}
+		mod.CreateSignal(buf, _countof(buf));
+		voice.Play(buf, _countof(buf));
 
 		//裏画面を表画面に瞬間コピー
 		DxLib::ScreenFlip();

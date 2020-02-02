@@ -37,7 +37,7 @@ void Operator::Stop(void)
 	}
 }
 
-std::int32_t Operator::CreateSignal(void)
+std::int32_t Operator::CreateSignalSimple(void)
 {
 	if (flag == false) {
 		return 0;

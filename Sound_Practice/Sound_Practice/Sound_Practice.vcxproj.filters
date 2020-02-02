@@ -28,6 +28,12 @@
     <Filter Include="XAudio2">
       <UniqueIdentifier>{9fd1669d-ba44-4c89-bcae-e1c44778cd3f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="XAudio2\XAudio">
+      <UniqueIdentifier>{99535416-5548-4648-b814-33aa0a0beff6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="XAudio2\SourceVoice">
+      <UniqueIdentifier>{de803b17-7190-42d3-b8c2-af791e192eb7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -42,8 +48,11 @@
     <ClCompile Include="FM音源\Modulator.cpp">
       <Filter>FM音源\Modulator</Filter>
     </ClCompile>
-    <ClCompile Include="XAudio2\XAudio\XAudio.cpp">
-      <Filter>XAudio2</Filter>
+    <ClCompile Include="XAudio2\SourceVoice\SourceVoice.cpp">
+      <Filter>XAudio2\SourceVoice</Filter>
+    </ClCompile>
+    <ClCompile Include="XAudio2\XAudio.cpp">
+      <Filter>XAudio2\XAudio</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -59,8 +68,14 @@
     <ClInclude Include="FM音源\Modulator.h">
       <Filter>FM音源\Modulator</Filter>
     </ClInclude>
-    <ClInclude Include="XAudio2\XAudio\XAudio.h">
+    <ClInclude Include="XAudio2\VoiceCallback.h">
       <Filter>XAudio2</Filter>
+    </ClInclude>
+    <ClInclude Include="XAudio2\SourceVoice\SourceVoice.h">
+      <Filter>XAudio2\SourceVoice</Filter>
+    </ClInclude>
+    <ClInclude Include="XAudio2\XAudio.h">
+      <Filter>XAudio2\XAudio</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

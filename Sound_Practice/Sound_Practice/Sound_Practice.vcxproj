@@ -154,14 +154,17 @@
     <ClCompile Include="FM音源\Modulator.cpp" />
     <ClCompile Include="FM音源\Operator\Operator.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="XAudio2\XAudio\XAudio.cpp" />
+    <ClCompile Include="XAudio2\SourceVoice\SourceVoice.cpp" />
+    <ClCompile Include="XAudio2\XAudio.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FM音源\Feedback\Feedback.h" />
     <ClInclude Include="FM音源\Modulator.h" />
     <ClInclude Include="FM音源\Operator\Operator.h" />
     <ClInclude Include="FM音源\SinTbl.h" />
-    <ClInclude Include="XAudio2\XAudio\XAudio.h" />
+    <ClInclude Include="XAudio2\SourceVoice\SourceVoice.h" />
+    <ClInclude Include="XAudio2\VoiceCallback.h" />
+    <ClInclude Include="XAudio2\XAudio.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
