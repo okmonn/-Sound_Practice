@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ソース ファイル">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="ヘッダー ファイル">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="リソース ファイル">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="FM音源">
+      <UniqueIdentifier>{5a297f78-90c2-45e9-8a89-aafbbedaa754}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FM音源\Feedback">
+      <UniqueIdentifier>{c169b20e-f0f7-435c-a4f0-1a038ae04c34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FM音源\Operator">
+      <UniqueIdentifier>{d11fa23c-c365-43be-8391-f751d6813da6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FM音源\Modulator">
+      <UniqueIdentifier>{191803c3-db89-420e-aeaa-cfba22db5feb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="XAudio2">
+      <UniqueIdentifier>{9fd1669d-ba44-4c89-bcae-e1c44778cd3f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="FM音源\Feedback\Feedback.cpp">
+      <Filter>FM音源\Feedback</Filter>
+    </ClCompile>
+    <ClCompile Include="FM音源\Operator\Operator.cpp">
+      <Filter>FM音源\Operator</Filter>
+    </ClCompile>
+    <ClCompile Include="FM音源\Modulator.cpp">
+      <Filter>FM音源\Modulator</Filter>
+    </ClCompile>
+    <ClCompile Include="XAudio2\XAudio\XAudio.cpp">
+      <Filter>XAudio2</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="FM音源\Feedback\Feedback.h">
+      <Filter>FM音源\Feedback</Filter>
+    </ClInclude>
+    <ClInclude Include="FM音源\Operator\Operator.h">
+      <Filter>FM音源\Operator</Filter>
+    </ClInclude>
+    <ClInclude Include="FM音源\SinTbl.h">
+      <Filter>FM音源</Filter>
+    </ClInclude>
+    <ClInclude Include="FM音源\Modulator.h">
+      <Filter>FM音源\Modulator</Filter>
+    </ClInclude>
+    <ClInclude Include="XAudio2\XAudio\XAudio.h">
+      <Filter>XAudio2</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
