@@ -5,6 +5,15 @@
 #include <cmath>
 #include <cstdint>
 
+namespace {
+	/*サンプリング周波数*/
+	const std::uint32_t sample = 48000;
+	/*量子化ビット数*/
+	const std::uint8_t bit = 16;
+	/*チャンネル数*/
+	const std::uint8_t channel = 1;
+}
+
 /*DxLibの初期化*/
 int DxInitialize(void) {
 	//ログの出力制御
@@ -30,7 +39,9 @@ int DxInitialize(void) {
 void DxDraw(void) {
 	//画面消去
 	DxLib::ClsDrawScreen();
-
+	for (int i = -10; i < 0; ++i) {
+		DxLib::DrawPixel(i + 10, std::pow(i, 2) - i, GetColor(255, 0, 0));
+	}
 	//裏画面を表画面に瞬間コピー
 	DxLib::ScreenFlip();
 }
@@ -40,22 +51,24 @@ void DxEnd(void) {
 }
 
 int main() {
+	DxInitialize();
+
 	auto hr = CoInitializeEx(nullptr, COINIT_MULTITHREADED);
 	XAudio* engine = nullptr;
 	hr = CreateXAudio(&engine);
-	SourceVoice voice(engine, 48000, 16, 1);
+	SourceVoice voice(engine, sample, bit, channel);
 	std::int16_t buf[480];
-	Modulator mod(48000);
+	Modulator mod(sample);
 	mod.SetFreq(440U);
 	mod.Start();
 
 	while (DxLib::ProcessMessage() == 0 && DxLib::CheckHitKey(KEY_INPUT_ESCAPE) == 0) {
 		mod.CreateSignal(buf, _countof(buf));
 		voice.Play(buf, _countof(buf));
+		//DxDraw();
 	}
-
+	DxEnd();
 	hr = Release(&engine);
 	CoUninitialize();
-
 	return 0;
 }

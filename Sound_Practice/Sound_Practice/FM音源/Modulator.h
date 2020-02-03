@@ -1,6 +1,6 @@
 #pragma once
 #include "Operator/Operator.h"
-#include <array>
+#include "Parameter/Parameter.h"
 
 class Modulator {
 public:
@@ -10,6 +10,9 @@ public:
 	.サンプリング周波数
 	.生成周波数*/
 	Modulator(const std::uint32_t& sample, const std::uint32_t& freq = 440);
+	/*パラメータの適用
+	.Parameter*/
+	void ApplyParameter(const Parameter& parameter);
 	/*信号生成の開始*/
 	void Start(void);
 	/*信号生成の停止*/
@@ -30,10 +33,10 @@ public:
 	/*生成周波数の設定
 	.生成周波数*/
 	void SetFreq(const float& freq);
-
+	
 public:
 	/*オペレータ*/
-	std::array<Operator, 4>op;
+	std::array<Operator, OP_MAX>op;
 
 private:
 	/*サンプリング周波数*/

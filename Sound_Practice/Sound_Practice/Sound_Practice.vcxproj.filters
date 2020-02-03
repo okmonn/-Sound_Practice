@@ -34,6 +34,18 @@
     <Filter Include="XAudio2\SourceVoice">
       <UniqueIdentifier>{de803b17-7190-42d3-b8c2-af791e192eb7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="FM音源\Parameter">
+      <UniqueIdentifier>{38c18e88-1cfc-44b2-bc18-dbd4a0781272}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Function">
+      <UniqueIdentifier>{58c584c5-63e0-4589-9001-fdc058292a96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FM音源\Envelope">
+      <UniqueIdentifier>{920e5986-9d71-4f47-8b98-d236d6962813}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FM音源\ADSR">
+      <UniqueIdentifier>{bf12f59e-4eb2-4950-8079-fe7040676530}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -53,6 +65,15 @@
     </ClCompile>
     <ClCompile Include="XAudio2\XAudio.cpp">
       <Filter>XAudio2\XAudio</Filter>
+    </ClCompile>
+    <ClCompile Include="FM音源\Parameter\Parameter.cpp">
+      <Filter>FM音源\Parameter</Filter>
+    </ClCompile>
+    <ClCompile Include="FM音源\ADSR\ADSR.cpp">
+      <Filter>FM音源\ADSR</Filter>
+    </ClCompile>
+    <ClCompile Include="FM音源\Envelope\Envelope.cpp">
+      <Filter>FM音源\Envelope</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -76,6 +97,18 @@
     </ClInclude>
     <ClInclude Include="XAudio2\XAudio.h">
       <Filter>XAudio2\XAudio</Filter>
+    </ClInclude>
+    <ClInclude Include="FM音源\Parameter\Parameter.h">
+      <Filter>FM音源\Parameter</Filter>
+    </ClInclude>
+    <ClInclude Include="Function\Function.h">
+      <Filter>Function</Filter>
+    </ClInclude>
+    <ClInclude Include="FM音源\ADSR\ADSR.h">
+      <Filter>FM音源\ADSR</Filter>
+    </ClInclude>
+    <ClInclude Include="FM音源\Envelope\Envelope.h">
+      <Filter>FM音源\Envelope</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
