@@ -14,6 +14,9 @@ public:
 	void Start(void);
 	/*信号生成の停止*/
 	void Stop(void);
+	/*アルゴリズムの適用
+	.適用関数のポインタ*/
+	void ApplyAlgorithmFunc(std::int32_t(*func)(Modulator*));
 	/*信号の生成
 	.格納バッファ
 	.バッファ数*/
@@ -28,11 +31,15 @@ public:
 	.生成周波数*/
 	void SetFreq(const float& freq);
 
-private:
+public:
 	/*オペレータ*/
 	std::array<Operator, 4>op;
+
+private:
 	/*サンプリング周波数*/
 	std::uint32_t sample;
 	/*生成周波数*/
 	std::uint32_t freq;
+	/*アルゴリズムの処理*/
+	std::int32_t(*algorithm)(Modulator*);
 };

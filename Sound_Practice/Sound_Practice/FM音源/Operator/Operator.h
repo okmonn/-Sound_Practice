@@ -18,6 +18,13 @@ public:
 	/*信号の生成(モジュレータなし、フィードバックなし)
 	return 信号*/
 	std::int32_t CreateSignalSimple(void);
+	/*信号の生成(モジュレータなし、フィードバックあり)
+	return 信号*/
+	std::int32_t CreateSignalFB(void);
+	/*信号の生成(モジュレータあり、フィードバックなし)
+	.モジュレータ用の信号
+	return 信号*/
+	std::int32_t CreateSignalModulation(const std::int32_t& mod);
 	/*読み出し速度の設定
 	.生成信号
 	.サンプリング周波数*/

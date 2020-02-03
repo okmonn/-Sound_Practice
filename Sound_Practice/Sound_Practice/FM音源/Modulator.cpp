@@ -2,14 +2,20 @@
 
 Modulator::Modulator()
 {
-	sample = 0;
-	freq   = 0;
+	sample    = 0;
+	freq      = 0;
+	ApplyAlgorithmFunc([](Modulator* mod)->std::int32_t {
+		return mod->op[0].CreateSignalSimple();
+	});
 }
 
 Modulator::Modulator(const std::uint32_t& sample, const std::uint32_t& freq)
 {
 	SetSample(sample);
 	SetFreq(freq);
+	ApplyAlgorithmFunc([](Modulator* mod)->std::int32_t {
+		return mod->op[0].CreateSignalSimple();
+	});
 }
 
 void Modulator::Start(void)
@@ -26,10 +32,15 @@ void Modulator::Stop(void)
 	}
 }
 
+void Modulator::ApplyAlgorithmFunc(std::int32_t(*func)(Modulator*))
+{
+	this->algorithm = func;
+}
+
 void Modulator::CreateSignal(std::int16_t* buf, const std::uint32_t& num)
 {
 	for (std::uint32_t i = 0; i < num; ++i) {
-		buf[i] = op[0].CreateSignalSimple();
+		buf[i] = algorithm(this);
 	}
 }
 

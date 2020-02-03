@@ -25,6 +25,10 @@ public:
 	void __stdcall OnStreamEnd() {}
 	void __stdcall OnLoopEnd(void* pBufferContext) {}
 	void __stdcall OnVoiceError(void* pBufferContext, HRESULT Error) {}
+	/*イベント待機処理*/
+	void Wait(void) {
+		WaitForSingleObjectEx(handle, INFINITE, 0);
+	}
 
 public:
 	/*イベントハンドル*/

@@ -10,6 +10,11 @@ namespace {
 	const std::uint32_t spk[] = {
 		KSAUDIO_SPEAKER_MONO,
 		KSAUDIO_SPEAKER_STEREO,
+		KSAUDIO_SPEAKER_3POINT0,
+		KSAUDIO_SPEAKER_QUAD,
+		KSAUDIO_SPEAKER_5POINT0,
+		KSAUDIO_SPEAKER_DIRECTOUT,
+		KSAUDIO_SPEAKER_7POINT0,
 	};
 }
 
@@ -61,14 +66,16 @@ void SourceVoice::Play(const std::int16_t* buf, const std::uint32_t& num)
 		flag = true;
 	}
 
+	wave.assign(&buf[0], &buf[num]);
+
 	XAUDIO2_BUFFER desc{};
-	desc.AudioBytes = std::uint32_t(sizeof(buf[0]) * num);
-	desc.pAudioData = (std::uint8_t*)buf;
+	desc.AudioBytes = std::uint32_t(sizeof(wave[0]) * wave.size());
+	desc.pAudioData = (std::uint8_t*)wave.data();
 
 	auto hr = voice->SubmitSourceBuffer(&desc, nullptr);
 	assert(hr == S_OK);
 
-	WaitForSingleObjectEx(callback->handle, INFINITE, 0);
+	callback->Wait();
 }
 
 void SourceVoice::Stop(void)

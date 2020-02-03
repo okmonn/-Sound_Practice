@@ -27,6 +27,7 @@ void Operator::Start(void)
 {
 	if (flag == false) {
 		flag = true;
+		fb.data = 0;
 	}
 }
 
@@ -43,7 +44,32 @@ std::int32_t Operator::CreateSignalSimple(void)
 		return 0;
 	}
 
-	std::int32_t signal = sinTbl[pos >> 20];
+	std::int32_t signal = sinTbl[(pos >> 20)];
+	pos += speed;
+
+	return signal;
+}
+
+std::int32_t Operator::CreateSignalFB(void)
+{
+	if (flag == false) {
+		return 0;
+	}
+
+	std::int32_t signal = sinTbl[(pos + (fb.data * fb.gain)) >> 20];
+	fb.data = (sinTbl[pos >> 20] >> 12);
+	pos += speed;
+
+	return signal;
+}
+
+std::int32_t Operator::CreateSignalModulation(const std::int32_t& mod)
+{
+	if (flag == false) {
+		return 0;
+	}
+
+	std::int32_t signal = sinTbl[((pos + mod) >> 20)];
 	pos += speed;
 
 	return signal;

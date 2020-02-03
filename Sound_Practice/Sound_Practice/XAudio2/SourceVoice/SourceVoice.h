@@ -1,4 +1,5 @@
 #pragma once
+#include <vector>
 #include <memory>
 #include <cstdint>
 
@@ -47,4 +48,6 @@ private:
 	IXAudio2SourceVoice* voice;
 	/*再生フラグ*/
 	bool flag;
+	/*波形データ*/
+	std::vector<std::int16_t>wave;
 };
