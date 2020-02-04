@@ -1,9 +1,11 @@
 #include "Modulator.h"
+#include <cmath>
 
 Modulator::Modulator()
 {
-	sample    = 0;
-	freq      = 0;
+	sample = 0;
+	freq   = 0;
+	op.resize(4);
 	ApplyAlgorithmFunc([](Modulator* mod)->std::int32_t {
 		return mod->op[0].CreateSignalSimple();
 	});
@@ -11,6 +13,7 @@ Modulator::Modulator()
 
 Modulator::Modulator(const std::uint32_t& sample, const std::uint32_t& freq)
 {
+	op.resize(4);
 	SetSample(sample);
 	SetFreq(freq);
 	ApplyAlgorithmFunc([](Modulator* mod)->std::int32_t {

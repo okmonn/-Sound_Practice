@@ -1,4 +1,5 @@
 #include "Parameter.h"
+#include <algorithm>
 
 Param::Param()
 {
@@ -23,8 +24,6 @@ Parameter::Parameter()
 
 Parameter::Parameter(const std::initializer_list<Param>& param)
 {
-	std::uint32_t index = 0;
-	for (auto& i : param) {
-		this->param[index++] = i;
-	}
+	this->param.resize(param.size());
+	std::copy(param.begin(), param.end(), this->param.begin());
 }

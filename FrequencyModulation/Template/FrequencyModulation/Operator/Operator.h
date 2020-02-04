@@ -3,14 +3,13 @@
 #include "../ADSR/ADSR.h"
 #include "../Envelope/Envelope.h"
 
+class Modulator;
+
 struct Operator {
+	friend Modulator;
 public:
 	/*コンストラクタ*/
 	Operator();
-	/*信号生成の開始*/
-	void Start(void);
-	/*信号生成の停止*/
-	void Stop(void);
 	/*信号の生成(モジュレータなし、フィードバックなし)
 	return 信号*/
 	std::int32_t CreateSignalSimple(void);
@@ -21,6 +20,15 @@ public:
 	.モジュレータ用の信号
 	return 信号*/
 	std::int32_t CreateSignalModulation(const std::int32_t& mod);
+
+private:
+	/*信号生成の開始*/
+	void Start(void);
+	/*信号生成の停止*/
+	void Stop(void);
+	/*エンベロープの制御
+	return 出力レベル比率*/
+	std::int32_t EnvelopeControler(void);
 	/*読み出し速度の設定
 	.生成信号
 	.サンプリング周波数*/
@@ -29,7 +37,6 @@ public:
 	.周波数比率(0.0f～1.0f)*/
 	void SetRatio(const float& ratio);
 
-public:
 	/*エンベロープ*/
 	Envelope ev;
 	/*ADSR*/
@@ -44,9 +51,4 @@ public:
 	std::uint32_t ratio;
 	/*信号生成フラグ*/
 	bool flag;
-	
-private:
-	/*エンベロープの制御
-	return 出力レベル比率*/
-	std::int32_t EnvelopeControler(void);
 };

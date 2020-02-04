@@ -1,8 +1,5 @@
 #pragma once
-#include <array>
-
-/*オペレータの最大数*/
-#define OP_MAX 4
+#include <vector>
 
 struct Param {
 public:
@@ -49,5 +46,5 @@ public:
 
 public:
 	/*パラメータ*/
-	std::array<Param, OP_MAX>param;
+	std::vector<Param>param;
 };

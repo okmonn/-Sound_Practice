@@ -1,6 +1,7 @@
 #pragma once
 #include "Operator/Operator.h"
 #include "Parameter/Parameter.h"
+#include <vector>
 
 class Modulator {
 public:
@@ -36,7 +37,7 @@ public:
 	
 public:
 	/*オペレータ*/
-	std::array<Operator, OP_MAX>op;
+	std::vector<Operator>op;
 
 private:
 	/*サンプリング周波数*/
