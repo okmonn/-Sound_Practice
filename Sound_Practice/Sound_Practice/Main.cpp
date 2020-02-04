@@ -9,7 +9,7 @@ namespace {
 	/*サンプリング周波数*/
 	const std::uint32_t sample = 48000;
 	/*量子化ビット数*/
-	const std::uint8_t bit = 16;
+	const std::uint8_t bit     = 16;
 	/*チャンネル数*/
 	const std::uint8_t channel = 1;
 
@@ -30,7 +30,7 @@ int DxInitialize(void) {
 	//true:window　false:ﾌﾙｽｸﾘｰﾝ
 	DxLib::ChangeWindowMode(true);
 	//windowテキストの設定
-	SetWindowText(_T("1601271_岡繁男"));
+	SetWindowText(_T("おかもん"));
 	//Dxlibの初期化
 	if (DxLib::DxLib_Init() == -1) {
 		return -1;
@@ -73,7 +73,7 @@ int main() {
 		if (DxLib::CheckHitKey(KEY_INPUT_SPACE) != 0) {
 			if (key == false) {
 				key = true;
-				mod.SetFreq(440U);
+				//mod.SetFreq(440U);
 				mod.Start();
 			}
 		}

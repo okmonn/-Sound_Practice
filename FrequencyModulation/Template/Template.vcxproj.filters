@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ソース ファイル">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="ヘッダー ファイル">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="リソース ファイル">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Modulator">
+      <UniqueIdentifier>{7411c41a-7cc1-40e1-a37b-2e39b72fdceb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ADSR">
+      <UniqueIdentifier>{3c3fd978-d894-4ab8-bfb9-f45860f7b8db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Envelope">
+      <UniqueIdentifier>{78333e48-4b0a-49a5-98a4-f4324f635043}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Feedback">
+      <UniqueIdentifier>{0d2275d0-9493-49f8-9306-022573c9ed7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Parameter">
+      <UniqueIdentifier>{91fec92b-3697-4c88-9303-d237e2edbb3b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Operator">
+      <UniqueIdentifier>{b3989b25-11c5-4af6-8ccf-b8ca03633df2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="FrequencyModulation\Modulator.cpp">
+      <Filter>Modulator</Filter>
+    </ClCompile>
+    <ClCompile Include="FrequencyModulation\ADSR\ADSR.cpp">
+      <Filter>ADSR</Filter>
+    </ClCompile>
+    <ClCompile Include="FrequencyModulation\Envelope\Envelope.cpp">
+      <Filter>Envelope</Filter>
+    </ClCompile>
+    <ClCompile Include="FrequencyModulation\Feedback\Feedback.cpp">
+      <Filter>Feedback</Filter>
+    </ClCompile>
+    <ClCompile Include="FrequencyModulation\Parameter\Parameter.cpp">
+      <Filter>Parameter</Filter>
+    </ClCompile>
+    <ClCompile Include="FrequencyModulation\Operator\Operator.cpp">
+      <Filter>Operator</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="FrequencyModulation\SinTbl.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="FrequencyModulation\Modulator.h">
+      <Filter>Modulator</Filter>
+    </ClInclude>
+    <ClInclude Include="FrequencyModulation\ADSR\ADSR.h">
+      <Filter>ADSR</Filter>
+    </ClInclude>
+    <ClInclude Include="FrequencyModulation\Envelope\Envelope.h">
+      <Filter>Envelope</Filter>
+    </ClInclude>
+    <ClInclude Include="FrequencyModulation\Feedback\Feedback.h">
+      <Filter>Feedback</Filter>
+    </ClInclude>
+    <ClInclude Include="FrequencyModulation\Parameter\Parameter.h">
+      <Filter>Parameter</Filter>
+    </ClInclude>
+    <ClInclude Include="FrequencyModulation\Operator\Operator.h">
+      <Filter>Operator</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
