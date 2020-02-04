@@ -7,12 +7,6 @@ struct Operator {
 public:
 	/*コンストラクタ*/
 	Operator();
-	/*コピーコンストラクタ
-	.Operator*/
-	Operator(const Operator& op);
-	/*代入演算子
-	.Operator*/
-	void operator=(const Operator& op);
 	/*信号生成の開始*/
 	void Start(void);
 	/*信号生成の停止*/
@@ -50,6 +44,9 @@ public:
 	std::uint32_t ratio;
 	/*信号生成フラグ*/
 	bool flag;
-
+	
 private:
+	/*エンベロープの制御
+	return 出力レベル比率*/
+	std::int32_t EnvelopeControler(void);
 };

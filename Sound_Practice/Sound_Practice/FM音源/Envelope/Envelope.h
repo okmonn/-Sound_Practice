@@ -1,7 +1,9 @@
 #pragma once
 #include <cstdint>
 
-/*動作状態*/
+struct ADSR;
+
+/*エンベロープの動作状態*/
 enum class EV_STATE {
 	/*完了*/
 	done,
@@ -12,13 +14,20 @@ enum class EV_STATE {
 	/*サスティン*/
 	sustain,
 	/*リリース*/
-	release
+	release,
+	/*エンベロープの動作状態の最大数*/
+	max
 };
 
 struct Envelope {
 public:
 	/*コンストラクタ*/
 	Envelope();
+	/*動作状態の設定
+	.ADSR
+	.エンベロープの動作設定
+	return 信号生成フラグ*/
+	bool SetState(const ADSR& adsr, const EV_STATE& state);
 
 public:
 	/*動作状態*/
@@ -29,9 +38,4 @@ public:
 	std::int32_t delta;
 	/*入力レベル変化カウンタ*/
 	std::uint32_t cnt;
-
-private:
-	/*動作状態の設定
-	.動作状態*/
-	void SetState(const EV_STATE& state);
 };

@@ -55,9 +55,18 @@ void Modulator::ApplyAlgorithmFunc(std::int32_t(*func)(Modulator*))
 void Modulator::CreateSignal(std::int16_t* buf, const std::uint32_t& num)
 {
 	for (std::uint32_t i = 0; i < num; ++i) {
-		buf[i] = algorithm(this);
+		std::int32_t signal = algorithm(this);
+		signal >>= 16;
+		if (signal > 0x7fff) {
+			buf[i] = 0x7fff;
+		}
+		else if (signal < -0x7fff) {
+			buf[i] = -0x7fff;
+		}
+		else {
+			buf[i] = std::int16_t(signal);
+		}
 	}
-	int i = 0;
 }
 
 void Modulator::SetSample(const std::uint32_t& sample)

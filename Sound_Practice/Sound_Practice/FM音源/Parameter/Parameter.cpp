@@ -12,6 +12,11 @@ Param::Param()
 	fb_gain      = 0.0f;
 }
 
+Param::Param(const float& attackLevel, const float& attack, const float& decay, const float& sustainLevel, const float& release, const float& freq_ratio, const float& gain_ratio, const float& fb_gain) : 
+	attackLevel(attackLevel), attack(attack), decay(decay), sustainLevel(sustainLevel), release(release), freq_ratio(freq_ratio), gain_ratio(gain_ratio), fb_gain(fb_gain)
+{
+}
+
 Parameter::Parameter()
 {
 }

@@ -8,6 +8,17 @@ struct Param {
 public:
 	/*コンストラクタ*/
 	Param();
+	/*コンストラクタ
+	.アタック時の最大入力レベル比率
+	.アタック時の持続サンプル数比率
+	.ディケイ時の持続サンプル数比率
+	.サスティン時の最大入力レベル比率
+	.リリース時の持続サンプル数比率
+	.生成周波数比率
+	.入力レベル比率
+	.フィードバック用入力レベル比率*/
+	Param(const float& attackLevel, const float& attack, const float& decay, const float& sustainLevel,
+		const float& release, const float& freq_ratio, const float& gain_ratio, const float& fb_gain);
 
 public:
 	/*アタック時の最大入力レベル比率*/

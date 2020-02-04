@@ -12,6 +12,13 @@ namespace {
 	const std::uint8_t bit = 16;
 	/*É`ÉÉÉìÉlÉãêî*/
 	const std::uint8_t channel = 1;
+
+	Parameter pr = {
+		{{ 0.9f , 0.0f, 1.0f, 0.85f, 0.5f, 0.5f, 1.0f, 0.0f }, 
+		 { 0.8f , 0.0f, 1.5f, 0.2f , 0.5f, 0.5f, 2.0f, 0.0f }, 
+		 { 0.25f, 0.2f, 1.3f, 0.7f , 0.3f, 0.5f, 2.0f, 0.0f },
+		 { 0.9f , 0.0f, 0.6f, 0.2f , 0.5f, 0.5f, 2.0f, 0.57f}}
+	};
 }
 
 /*DxLibÇÃèâä˙âª*/
@@ -59,10 +66,23 @@ int main() {
 	SourceVoice voice(engine, sample, bit, channel);
 	std::int16_t buf[480];
 	Modulator mod(sample);
-	mod.SetFreq(440U);
-	mod.Start();
-
+	mod.ApplyParameter(pr);
+	
+	bool key = false;
 	while (DxLib::ProcessMessage() == 0 && DxLib::CheckHitKey(KEY_INPUT_ESCAPE) == 0) {
+		if (DxLib::CheckHitKey(KEY_INPUT_SPACE) != 0) {
+			if (key == false) {
+				key = true;
+				mod.SetFreq(440U);
+				mod.Start();
+			}
+		}
+		else {
+			if (key == true) {
+				key = false;
+				mod.Stop();
+			}
+		}
 		mod.CreateSignal(buf, _countof(buf));
 		voice.Play(buf, _countof(buf));
 		//DxDraw();

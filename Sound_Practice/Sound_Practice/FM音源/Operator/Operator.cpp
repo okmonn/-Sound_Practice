@@ -9,33 +9,33 @@ Operator::Operator()
 	flag  = false;
 }
 
-Operator::Operator(const Operator& op)
-{
-	(*this) = op;
-}
-
-void Operator::operator=(const Operator& op)
-{
-	fb.gain = op.fb.gain;
-	pos     = 0;
-	speed   = op.speed;
-	ratio   = op.ratio;
-	flag    = false;
-}
-
 void Operator::Start(void)
 {
-	if (flag == false) {
-		flag = true;
-		fb.data = 0;
-	}
+	ev      = Envelope();
+	flag    = ev.SetState(adsr, EV_STATE((std::uint32_t(ev.state) + 1) % std::uint32_t(EV_STATE::max)));
+	fb.data = 0;
 }
 
 void Operator::Stop(void)
 {
 	if (flag == true) {
-		flag = false;
+		if (ev.state != EV_STATE::release) {
+			flag = ev.SetState(adsr, EV_STATE::release);
+		}
 	}
+}
+
+std::int32_t Operator::EnvelopeControler(void)
+{
+	if (ev.cnt == 0 && ev.state != EV_STATE::sustain) {
+		flag = ev.SetState(adsr, EV_STATE((std::uint32_t(ev.state) + 1) % std::uint32_t(EV_STATE::max)));
+	}
+	
+	std::int32_t gain = (ev.gain >> 16);
+ 	ev.gain += ev.delta;
+	--ev.cnt;
+
+	return gain;
 }
 
 std::int32_t Operator::CreateSignalSimple(void)
@@ -44,7 +44,7 @@ std::int32_t Operator::CreateSignalSimple(void)
 		return 0;
 	}
 
-	std::int32_t signal = sinTbl[(pos >> 20)];
+	std::int32_t signal = sinTbl[(pos >> 20)] * EnvelopeControler();
 	pos += speed;
 
 	return signal;
