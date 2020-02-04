@@ -13,102 +13,10 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="FM音源">
-      <UniqueIdentifier>{5a297f78-90c2-45e9-8a89-aafbbedaa754}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="FM音源\Feedback">
-      <UniqueIdentifier>{c169b20e-f0f7-435c-a4f0-1a038ae04c34}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="FM音源\Operator">
-      <UniqueIdentifier>{d11fa23c-c365-43be-8391-f751d6813da6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="FM音源\Modulator">
-      <UniqueIdentifier>{191803c3-db89-420e-aeaa-cfba22db5feb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="XAudio2">
-      <UniqueIdentifier>{9fd1669d-ba44-4c89-bcae-e1c44778cd3f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="XAudio2\XAudio">
-      <UniqueIdentifier>{99535416-5548-4648-b814-33aa0a0beff6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="XAudio2\SourceVoice">
-      <UniqueIdentifier>{de803b17-7190-42d3-b8c2-af791e192eb7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="FM音源\Parameter">
-      <UniqueIdentifier>{38c18e88-1cfc-44b2-bc18-dbd4a0781272}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Function">
-      <UniqueIdentifier>{58c584c5-63e0-4589-9001-fdc058292a96}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="FM音源\Envelope">
-      <UniqueIdentifier>{920e5986-9d71-4f47-8b98-d236d6962813}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="FM音源\ADSR">
-      <UniqueIdentifier>{bf12f59e-4eb2-4950-8079-fe7040676530}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="FM音源\Feedback\Feedback.cpp">
-      <Filter>FM音源\Feedback</Filter>
-    </ClCompile>
-    <ClCompile Include="FM音源\Operator\Operator.cpp">
-      <Filter>FM音源\Operator</Filter>
-    </ClCompile>
-    <ClCompile Include="FM音源\Modulator.cpp">
-      <Filter>FM音源\Modulator</Filter>
-    </ClCompile>
-    <ClCompile Include="XAudio2\SourceVoice\SourceVoice.cpp">
-      <Filter>XAudio2\SourceVoice</Filter>
-    </ClCompile>
-    <ClCompile Include="XAudio2\XAudio.cpp">
-      <Filter>XAudio2\XAudio</Filter>
-    </ClCompile>
-    <ClCompile Include="FM音源\Parameter\Parameter.cpp">
-      <Filter>FM音源\Parameter</Filter>
-    </ClCompile>
-    <ClCompile Include="FM音源\ADSR\ADSR.cpp">
-      <Filter>FM音源\ADSR</Filter>
-    </ClCompile>
-    <ClCompile Include="FM音源\Envelope\Envelope.cpp">
-      <Filter>FM音源\Envelope</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="FM音源\Feedback\Feedback.h">
-      <Filter>FM音源\Feedback</Filter>
-    </ClInclude>
-    <ClInclude Include="FM音源\Operator\Operator.h">
-      <Filter>FM音源\Operator</Filter>
-    </ClInclude>
-    <ClInclude Include="FM音源\SinTbl.h">
-      <Filter>FM音源</Filter>
-    </ClInclude>
-    <ClInclude Include="FM音源\Modulator.h">
-      <Filter>FM音源\Modulator</Filter>
-    </ClInclude>
-    <ClInclude Include="XAudio2\VoiceCallback.h">
-      <Filter>XAudio2</Filter>
-    </ClInclude>
-    <ClInclude Include="XAudio2\SourceVoice\SourceVoice.h">
-      <Filter>XAudio2\SourceVoice</Filter>
-    </ClInclude>
-    <ClInclude Include="XAudio2\XAudio.h">
-      <Filter>XAudio2\XAudio</Filter>
-    </ClInclude>
-    <ClInclude Include="FM音源\Parameter\Parameter.h">
-      <Filter>FM音源\Parameter</Filter>
-    </ClInclude>
-    <ClInclude Include="Function\Function.h">
-      <Filter>Function</Filter>
-    </ClInclude>
-    <ClInclude Include="FM音源\ADSR\ADSR.h">
-      <Filter>FM音源\ADSR</Filter>
-    </ClInclude>
-    <ClInclude Include="FM音源\Envelope\Envelope.h">
-      <Filter>FM音源\Envelope</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>

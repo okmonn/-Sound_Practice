@@ -37,7 +37,7 @@ void XAudio::CreateAudio(void)
 #ifdef _DEBUG
 	flag = XAUDIO2_DEBUG_ENGINE;
 #endif
-	auto hr = XAudio2CreateWithVersionInfo(&audio, flag);
+	auto hr = XAudio2Create(&audio, flag);
 	assert(hr == S_OK);
 }
 
