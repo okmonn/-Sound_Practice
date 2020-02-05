@@ -3,6 +3,7 @@
 
 #include <XAudio.h>
 #include <Modulator.h>
+#include <ctime>
 
 #pragma comment(lib, "XAudio2.lib")
 #pragma comment(lib, "FrequencyModulation.lib")
@@ -44,14 +45,15 @@ int main() {
 	Modulator mod(sample);
 	mod.ApplyAlgorithmFunc(algorithm);
 	mod.ApplyParameter(parameter);
-	std::int16_t buf[sample / 100];
+	std::int16_t buf[sample];
 	bool key = false;
+	mod.SetFreq(261U);
+	mod.Start();
 	while (!(GetKeyState(VK_ESCAPE) & 0x80)) {
 		if (GetKeyState(VK_SPACE) & 0x80) {
 			if (key == false) {
 				key = true;
-				mod.SetFreq(261U);
-				mod.Start();
+				
 			}
 		}
 		else {
@@ -61,7 +63,10 @@ int main() {
 			}
 		}
 
+		auto start = clock();
 		mod.CreateSignal(buf, _countof(buf));
+		auto end = clock();
+		auto result = end - start;
 		voice.Play(buf, _countof(buf));
 	}
 
